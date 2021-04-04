@@ -149,7 +149,7 @@ html_report_base = '''
 .column {float: left; width: 320px; padding: 10px;}
 .idented {text-indent: 1em;}
 </style>
-<h2>Performance Report</h2>
+<h3>Performance Report</h3>
 <div>
     <div class="column"> <div class="cm"> %s </div> </div>
     <div class="column"> <div class="cm"> %s </div> </div>
