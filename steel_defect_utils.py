@@ -9,8 +9,6 @@ from IPython.display import display, HTML
 
 from IPython.display import display, HTML
 
-
-
 metrics_keys = ['Accuracy', 'Sensitivity', 'Specificity', 'Total Observations',
                 'Predicted', 'Correct Predictions', 'Incorrect Predictions',
                 'Inconclusive', 'Rate Inconclusive',
@@ -31,13 +29,13 @@ def performance_metrics(targets, preds_prob, neg_thresh = 0.2, pos_thresh = 0.8,
         report_type: (str) one of 'high_confidence', 'inconclusive', 'total'
             'total': will evaluate performance on the entire data using 0.5 as
                 prediction threshold.
-            'high_confidence': will evaluate performance only on the treshold
+            'high_confidence': will evaluate performance only on the threshold
                 bounded predicitons.
             'inconclusive': will return statistics on the inconclusive
                 predictions according to the thresholds.
 
     Returns: a tuple with:
-        1 dataframe with treshold bounded observations
+        1 dataframe with threshold bounded observations
         1 confusion matrix for the relevant observations
         1 dict with metrics for the relevant observations formated as strings
 
@@ -110,7 +108,7 @@ def metrics_table_html_string(metrics_strings):
     return table_string
 
 def cm_html_list(cm, max_rgb = (0, 45, 66), contrast = 0.7, blank_zeros = False,
-                 text_color_tresh = 0.2):
+                 text_color_thresh = 0.2):
     '''
     Calculates cell values to populate a confusion matrix in HTML
         cm: (numpy array) a (squared) confusion matrix
@@ -133,7 +131,7 @@ def cm_html_list(cm, max_rgb = (0, 45, 66), contrast = 0.7, blank_zeros = False,
         for v, n in zip(row_v, row_n):
             if v == 0: bg_color = (239, 239, 239)
             else: bg_color = tuple((mc+(dist*(1.-n**contrast))).astype(int))
-            if n > text_color_tresh: txt_color = 'white'
+            if n > text_color_thresh: txt_color = 'white'
             else: txt_color = 'grey'
             if n > 0.99 and n < 1.: n = '(> 0.99)'
             elif n > 0 and n < .01: n = '(< 0.01)'
@@ -192,7 +190,7 @@ cm_cell_base = '<td class="tg" style="background-color:rgb%s; color:%s">%s<br>%s
 
 def confusion_matrix_html(cm, classes = 'default', show_cm = True, title = '',
                           max_rgb = (0, 45, 65), contrast = 0.7,
-                          blank_zeros = False, text_color_tresh = 0.2,
+                          blank_zeros = False, text_color_thresh = 0.2,
                           incl_css = True, break_labels = True,
                           html_file = False):
     '''
@@ -208,7 +206,7 @@ def confusion_matrix_html(cm, classes = 'default', show_cm = True, title = '',
             less than 100
         contrast: (float) adjust to tweak the contrast between cells
         blank_zeros: (bool) if True, it will leave blank cells with 0s
-        text_color_tresh: (float) adjust to improve visibility of text in
+        text_color_thresh: (float) adjust to improve visibility of text in
             colored cells
         incl_css: if True, the output string will include additional CSS code
             for formatting confusion matrix cells.
@@ -218,7 +216,7 @@ def confusion_matrix_html(cm, classes = 'default', show_cm = True, title = '',
 
     Returns: a string containing the full html code for a confusion matrix
     '''
-    cell_vals = cm_html_list(cm, max_rgb, contrast, blank_zeros, text_color_tresh)
+    cell_vals = cm_html_list(cm, max_rgb, contrast, blank_zeros, text_color_thresh)
     if classes == 'default':
         classes = ['Class {}'.format(i+1) for i in range(cm.shape[0])]
 
