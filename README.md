@@ -27,7 +27,7 @@ The ensemble for the 2nd step consists of UNet++ (Zhou et al., 2019) based CNNs,
 
 **Running the Notebook**
 
-- Open the notebook in Colab and select TPU as accelerator.
+- [Open the notebook in Colab](https://githubtocolab.com/reyvaz/steel-defect-segmentation/blob/master/steel_defect_detection.ipynb) and select TPU as accelerator.
 - Update the GCS Path as indicated in the notebook
 - Run all
 
