@@ -1,11 +1,11 @@
 
 # Steel Defect Detection, Classification, and Segmentation
 
- [![Open In Colab](https://img.shields.io/badge/Open%20in%20Colab-grey?style=for-the-badge&logo=Google-Colab)](https://githubtocolab.com/reyvaz/steel-defect-segmentation/blob/master/severstal_preliminary.ipynb) 
+ [![Open In Colab](https://img.shields.io/badge/Open%20in%20Colab-grey?style=for-the-badge&logo=Google-Colab)](https://githubtocolab.com/reyvaz/steel-defect-segmentation/blob/master/steel_defect_detection.ipynb) 
 
 <br>
 
-This notebooks presents a solution to the [Severstal: Steel Defect Detection]( https://www.kaggle.com/c/severstal-steel-defect-detection) challenge. The challenge consists on using images to detect defects on pieces of steel, classify the type of defect (4 types), and identify the location and area of the defect.
+This notebooks presents a solution to the [Severstal: Steel Defect Detection]( https://www.kaggle.com/c/severstal-steel-defect-detection) competition. The challenge consists on using images to detect defects on pieces of steel, classify the type of defect (4 types), and identify the location and area of the defect.
 
 This solution consists on a two-step approach
 
@@ -25,9 +25,9 @@ The ensemble for the binary classification step consists of EfficientNet (Tan & 
 
 The ensemble for the 2nd step consists of UNet++ (Zhou et al., 2019) based CNNs, all with EfficientNet backbones versions B0-B5. 
 
-**Re-running the Notebook**
+**Running the Notebook**
 
-- Open the notebook in Colab and select TPU as accelerator (recommended).
+- Open the notebook in Colab and select TPU as accelerator.
 - Update the GCS Path as indicated in the notebook
 - Run all
 
