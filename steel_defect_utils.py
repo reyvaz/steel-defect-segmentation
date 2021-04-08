@@ -7,8 +7,6 @@ from datetime import datetime, timedelta
 from time import time, strftime, gmtime
 from IPython.display import display, HTML
 
-from IPython.display import display, HTML
-
 metrics_keys = ['Accuracy', 'Sensitivity', 'Specificity', 'Total Observations',
                 'Predicted', 'Correct Predictions', 'Incorrect Predictions',
                 'Inconclusive', 'Rate Inconclusive',
